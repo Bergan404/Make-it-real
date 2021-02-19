@@ -1,5 +1,5 @@
 {
-  "name": "Make-it-real",
+  "name": "make-it-real",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,7 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bergan404/Make-it-real.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Bergan404/Make-it-real/issues"
-  },
-  "homepage": "https://github.com/Bergan404/Make-it-real#readme"
+  "license": "ISC"
 }
