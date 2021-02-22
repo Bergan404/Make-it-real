@@ -1,0 +1,13 @@
+.sign-up {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.sign-up label {
+
+}
+.sign-up input {
+
+}

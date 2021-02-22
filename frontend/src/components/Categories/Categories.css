@@ -1,0 +1,16 @@
+.categories {
+    color: white;
+    list-style: none;
+    text-align: center;
+}
+.categories li {
+    display: inline-block;
+}
+.categories a {
+    text-decoration: none;
+    color: #f8e9a1;
+    font-size: 18px;
+}
+.categories a:hover {
+    color: #a8d0e6;
+}
