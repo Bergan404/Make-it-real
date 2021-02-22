@@ -65,12 +65,12 @@ router.post(
 router.get('/:username/', requireAuth, asyncHandler(async (req, res) => {
     const user = await db.User.findOne({
         where: { username: req.params.username },
-            include: db.Post,
-            order: [[db.Post, 'createdAt']],
-        });
-        user.Posts.forEach(
-            (post) => (post.postedDate = moment(post.createdAt).fromNow())
-        );
-    }))
+        include: db.Post,
+        order: [[db.Post, 'createdAt']],
+    });
+    user.Posts.forEach(
+        (post) => (post.postedDate = moment(post.createdAt).fromNow())
+    );
+}))
 
 module.exports = router;

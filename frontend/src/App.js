@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-// import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomeListing from "./components/RecentHomeListings";
 import AllHomeListing from "./components/AllHomeListings"
 import Categories from './components/Categories'
+import HomePage from './components/HomePage/HomePage'
+import ProfilePage from './components/Profile/index'
 
 function App() {
   const dispatch = useDispatch();
@@ -15,26 +16,16 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-
+console.log(isLoaded)
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
         <Switch>
-          {/* <Route path="/signup">
-            <SignupFormPage />
-          </Route> */}
+          <Route path="/" exact component={HomePage} />
+
+          <Route path="/profile/:username" component={ProfilePage} />
+
         </Switch>
-      )}
-      <div className="categories">
-        <Categories />
-      </div>
-      <div className="recent-listings">
-        <HomeListing />
-      </div>
-      <div className="all-home-listings">
-        <AllHomeListing />
-      </div>
     </>
   );
 }
