@@ -21,42 +21,33 @@ li {
 .home-button:hover {
     color: #c95555;
 }
-/* .sign-up {
-
-    color: black;
-    text-decoration: none;
-    float: right;
-    padding: 9px 15px 9px 15px;
-    position: relative;
-    right: 70px;
-    top: 5px;
-    text-align: center;
-} */
-/* .sign-up:hover {
-    border-radius: 24px 24px 24px 24px;
-    background-color: #dfe7f5;
-    color: #206CC3;
-
-} */
 
 .cart {
     float: right;
     position: relative;
     bottom: 35px;
-    left: 15px;
+    right: 5px;
     padding-left: 0px;
-    width: 60px;
-    height: 33px;
-}
-.cart img {
     width: 40px;
     height: 35px;
 }
+.fa-primary {
+    color: black;
+    width: 40px;
+    height: 35px;
+}
+.fa-primary:hover {
+    color: #f8e9a1;
+}
+/* .cart img {
+    width: 40px;
+    height: 35px;
+} */
 
 .profile {
     float: right;
     position: relative;
-    right: 60px;
+    right: 115px;
     top: 3px;
     /* padding: 5px; */
     margin-left: 10px;
@@ -70,4 +61,37 @@ li {
     cursor: pointer;
     background-color: rgba(36, 48, 94, .4);
     border-radius: 50%;
+}
+
+.logout-button {
+    float: right;
+    position: relative;
+    padding: 5px;
+    top: 7px;
+    right: 5px;
+    border: none;
+    background: none;
+    font-weight: bold;
+}
+.logout-button:hover {
+    color: #f8e9a1;
+    cursor: pointer;
+    background-color: rgba(36, 48, 94, .4);
+    border-radius: 24px 24px 24px 24px;
+}
+.create-post {
+    float: right;
+    position: relative;
+    top: 6px;
+    right: 47px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+}
+.create-post:hover {
+    color: #f8e9a1;
+    cursor: pointer;
+    background-color: rgba(36, 48, 94, .4);
+    border-radius: 24px 24px 24px 24px;
 }
