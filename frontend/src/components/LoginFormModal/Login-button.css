@@ -1,8 +1,8 @@
-button {
+.log-in-sign-up {
     float: right;
     position: relative;
     right: 70px;
-    top: 13px;
+    top: 6px;
     padding: 5px;
     margin-left: 10px;
     font-size: 16px;
@@ -10,7 +10,7 @@ button {
     background: none;
     font-weight: bold;
 }
-button:hover {
+.log-in-sign-up:hover {
     color: #f8e9a1;
     cursor: pointer;
     background-color: rgba(36, 48, 94, .4);

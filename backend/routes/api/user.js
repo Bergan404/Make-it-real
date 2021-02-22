@@ -2,9 +2,12 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const moment = require('moment')
+// const db = require('../../db/models/')
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
+const { db } = require('../../config');
 
 
 const router = express.Router();
@@ -58,5 +61,16 @@ router.post(
         });
     }),
 );
+
+router.get('/:username/', requireAuth, asyncHandler(async (req, res) => {
+    const user = await db.User.findOne({
+        where: { username: req.params.username },
+            include: db.Post,
+            order: [[db.Post, 'createdAt']],
+        });
+        user.Posts.forEach(
+            (post) => (post.postedDate = moment(post.createdAt).fromNow())
+        );
+    }))
 
 module.exports = router;

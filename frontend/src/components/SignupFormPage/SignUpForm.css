@@ -1,13 +1,41 @@
 .sign-up {
-    font-size: 20px;
+    font-size: 25px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
+    background-color: #a8d0e6;
+    border: 1px solid;
+    box-shadow: 5px 10px 8px #14161a;
 }
 .sign-up label {
-
+    text-align: center;
+    padding: 7px;
+    font-weight: bold;
 }
 .sign-up input {
-
+    border: 1px solid;
+    border-radius: 10px 10px;
+    box-sizing: border-box;
+    border-style: none;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    background-color: rgba(36, 48, 94, .4);
+    font-size: 20px;
+    width: 100%;
+}
+.sign-up-submit {
+    color: black;
+    background-color: #f76c6c;
+    padding: 10px;
+    border-radius: 5px 5px;
+    margin: 10px auto 0 auto;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+.sign-up-submit:hover {
+    background-color: #374785;
+    color: #f8e9a1;
+    cursor: pointer;
 }
