@@ -8,17 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.INTEGER
-      },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        REFERENCES: {model: 'Users'}
       },
       postId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        REFERENCES: {model: 'Posts'}
       },
       body: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(200),
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

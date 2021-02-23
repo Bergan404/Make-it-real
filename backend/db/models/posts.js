@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {});
   Posts.associate = function(models) {
-    // associations can be defined here
+    Posts.belongsTo(models.User, { foreignKey: 'userId' });
+    Posts.hasMany(models.Comments, { foreignKey: 'postId' });
   };
   return Posts;
 };

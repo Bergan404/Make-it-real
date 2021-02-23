@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     postId: DataTypes.INTEGER
   }, {});
   ShoppingCart.associate = function(models) {
-    // associations can be defined here
+    ShoppingCart.hasMany(models.Posts, { foreignKey: 'postId' });
+    ShoppingCart.belongsTo(models.User, { foreignKey: 'userId' });
   };
   return ShoppingCart;
 };
