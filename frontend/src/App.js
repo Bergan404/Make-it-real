@@ -8,6 +8,7 @@ import AllHomeListing from "./components/AllHomeListings"
 import Categories from './components/Categories'
 import HomePage from './components/HomePage/HomePage'
 import ProfilePage from './components/Profile/index'
+import Posts from "./components/CreatePost/CreatePost"
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-console.log(isLoaded)
+// console.log(isLoaded)
   return (
     <>
       <Navigation isLoaded={isLoaded} />
@@ -24,6 +25,8 @@ console.log(isLoaded)
           <Route path="/" exact component={HomePage} />
 
           <Route path="/profile/:username" component={ProfilePage} />
+
+          <Route path="/create-post" component={Posts}/>
 
         </Switch>
     </>

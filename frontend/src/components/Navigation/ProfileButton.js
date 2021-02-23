@@ -21,7 +21,7 @@ function ProfileButton({ user }) {
       </button>
     </NavLink>
       <button className="logout-button" onClick={logout}>Log Out</button>
-      <NavLink className="create-post" to="/">Create Post</NavLink>
+      <NavLink className="create-post" to="/create-post">Create Post</NavLink>
     </>
   );
 }
