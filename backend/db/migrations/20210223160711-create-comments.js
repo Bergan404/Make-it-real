@@ -11,12 +11,14 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        REFERENCES: {model: 'Users'}
+        REFERENCES: {model: 'Users'},
+        unique: true
       },
       postId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        REFERENCES: {model: 'Posts'}
+        REFERENCES: {model: 'Posts'},
+        unique: true
       },
       body: {
         type: Sequelize.STRING(200),
