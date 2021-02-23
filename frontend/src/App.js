@@ -3,12 +3,10 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import HomeListing from "./components/RecentHomeListings";
-import AllHomeListing from "./components/AllHomeListings"
-import Categories from './components/Categories'
 import HomePage from './components/HomePage/HomePage'
 import ProfilePage from './components/Profile/index'
 import Posts from "./components/CreatePost/CreatePost"
+import PostOpened from './components/PostAfterCreation/index'
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +25,8 @@ function App() {
           <Route path="/profile/:username" component={ProfilePage} />
 
           <Route path="/create-post" component={Posts}/>
+
+          <Route path="/post" component={PostOpened}/>
 
         </Switch>
     </>
