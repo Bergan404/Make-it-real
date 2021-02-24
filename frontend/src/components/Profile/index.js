@@ -26,7 +26,7 @@ function ProfilePage() {
         return (
             <>
                 <div className="profile-outer" >
-                    <h1 className="welcome-letter"> Welcome {sessionUser?.username} </h1>
+                    <h1 className="welcome-letter"> {sessionUser?.username} posts! </h1>
                     <div className="profile-layout" >
                         {elements}
                     </div>
