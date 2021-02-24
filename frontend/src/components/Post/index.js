@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import './Post.css';
 
@@ -8,8 +9,10 @@ const Post = (props) => {
     return (
         <>
             <div className="post-content">
-                <div>{props.props.postTitle}</div>
-                <div>{props.props.price}</div>
+                <NavLink to={`/post/${props.props.id}`}>
+                    <div>{props.props.postTitle}</div>
+                    <div>{props.props.price}</div>
+                </NavLink>
             </div>
         </>
     )
