@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
-import HomeListing from "../RecentHomeListings/index";
 import AllHomeListing from "../AllHomeListings/index"
 import Categories from '../Categories/index'
+import {getThePost} from '../../store/AllPosts'
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -11,15 +11,13 @@ function HomePage() {
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(getThePost())
   }, [dispatch]);
 
   return (
     <>
       <div className="categories">
         <Categories />
-      </div>
-      <div className="recent-listings">
-        <HomeListing />
       </div>
       <div className="all-home-listings">
         <AllHomeListing />

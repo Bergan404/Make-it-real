@@ -25,9 +25,11 @@ function ProfilePage() {
         })
         return (
             <>
-                <h1 className="welcome-letter"> Welcome {sessionUser?.username} </h1>
-                <div className="profile-layout" >
-                    {elements}
+                <div className="profile-outer" >
+                    <h1 className="welcome-letter"> Welcome {sessionUser?.username} </h1>
+                    <div className="profile-layout" >
+                        {elements}
+                    </div>
                 </div>
             </>
         );

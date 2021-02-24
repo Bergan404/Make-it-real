@@ -7,7 +7,9 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
     */
       const posts = await queryInterface.bulkInsert('Posts', [
-        { postTitle: 'New watch', description: 'this will revolutionize the big industry', highlights: 'shiny and handmade', listPicture: 'https://lh3.googleusercontent.com/proxy/QYiz6Jmjmzg6wwLXyABgYPUL9t6dWZoKype1Sios8rz-7ilsSvGPoH_ttN5AQg8YQYNB0_tTVPVWwLrZOK8NdgLz4P0TpNHVu8lywAAyV_1s50_DzVLi_hwizLGMBqAmKg', price: '$20.00', userId: 1, createdAt: new Date(), updatedAt: new Date()}
+        { postTitle: 'New watch', description: 'this will revolutionize the big industry', highlights: 'shiny and handmade', listPicture: 'https://lh3.googleusercontent.com/proxy/QYiz6Jmjmzg6wwLXyABgYPUL9t6dWZoKype1Sios8rz-7ilsSvGPoH_ttN5AQg8YQYNB0_tTVPVWwLrZOK8NdgLz4P0TpNHVu8lywAAyV_1s50_DzVLi_hwizLGMBqAmKg', price: '$20.00', userId: 1, createdAt: new Date(), updatedAt: new Date()},
+        { postTitle: 'Bean Burrito', description: 'this', highlights: 'shiny', listPicture: 'htt', price: '$30.00', userId: 4, createdAt: new Date(), updatedAt: new Date()},
+        { postTitle: 'Cooked egg', description: 'this will', highlights: 'handmade', listPicture: 'htt', price: '$50.00', userId: 4, createdAt: new Date(), updatedAt: new Date()},
       ], {});
 
   },

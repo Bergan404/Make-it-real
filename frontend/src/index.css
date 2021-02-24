@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 body {
-    background-color: #a8d0e6;
+    background-color: #4e4e50;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .recent-listings {
     background-color: #f76c6c;
@@ -10,11 +11,9 @@ body {
     border-top:2px solid black ;
 }
 .categories {
-    background-color: #374785;
+    background-color: #1a1a1d;
     position: relative;
     bottom: 8px;
 
 }
-.all-home-listings {
 
-}

@@ -41,5 +41,9 @@ router.post('/', asyncHandler(async (req, res) => {
     console.log(req.body)
 }))
 
+router.get('/', asyncHandler(async (req, res) => {
+    const allPosts = await db.Post.findAll()
+    res.json(allPosts)
+}))
 
 module.exports = router;

@@ -7,6 +7,7 @@ import HomePage from './components/HomePage/HomePage'
 import ProfilePage from './components/Profile/index'
 import Posts from "./components/CreatePost/CreatePost"
 import PostOpened from './components/PostAfterCreation/index'
+import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,8 @@ function App() {
           <Route path="/create-post" component={Posts}/>
 
           <Route path="/post" component={PostOpened}/>
+
+          <Route path="/shopping-cart" component={ShoppingCart}/>
 
         </Switch>
     </>

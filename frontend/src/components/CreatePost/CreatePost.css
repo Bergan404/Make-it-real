@@ -1,6 +1,10 @@
 /* .post-create-div {
     text-align: center;
 } */
+.post-header {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
 .post-form {
     font-size: 25px;
     display: flex;
@@ -20,7 +24,7 @@
     font-weight: bold;
     font-size: 27px;
 }
-.post-form input {
+.normal-style {
     border: 1px solid;
     border-radius: 10px 10px;
     box-sizing: border-box;
@@ -32,6 +36,32 @@
     width: 100%;
     text-align: center;
 }
+.normal-style-price {
+    border: 1px solid;
+    border-radius: 10px 10px;
+    box-sizing: border-box;
+    border-style: none;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-size: 20px;
+    width: 20%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.price-is-right {
+    display: block;
+}
+.radio {
+    font-size: 20px;
+    margin: 10px 0 10px 0;
+}
+.radio-1 {
+    margin: 0 0 0 20px;
+}
+.radio-2 {
+    margin: 0 0 0 20px;
+}
 .description-box {
     border-radius: 10px 10px;
     width: 100%;
@@ -39,18 +69,36 @@
     font-size: 20px;
 }
 
+.post-cancel-create {
+    text-align: center;
+}
 .create-post-submit {
     color: white;
-    background-color: #374785;
+    background-color: #4e4e50;
     padding: 10px;
     border-radius: 5px 5px;
-    margin: 10px auto 0 auto;
+    margin: 10px 10px 10px 10px;
     border: none;
     font-size: 15px;
     font-weight: bold;
 }
 .create-post-submit:hover {
-    background-color: #24305e;
-    color: #f8e9a1;
+    background-color: #1a1a1d;
+    color: #f76c6c;
+    cursor: pointer;
+}
+.cancel-post {
+    color: white;
+    background-color: #4e4e50;
+    padding: 10px;
+    border-radius: 5px 5px;
+    margin: 10px 10px 10px 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+.cancel-post:hover {
+    background-color: #1a1a1d;
+    color: #f76c6c;
     cursor: pointer;
 }

@@ -1,5 +1,5 @@
 .nav-background {
-    background-color: #374785;
+    background-color: #1a1a1d;
     list-style: none;
     text-align: left;
     padding: 10px 0 20px 0;
@@ -32,7 +32,7 @@ li {
     height: 35px;
 }
 .fa-primary {
-    color: black;
+    color: #f76c6c;
     width: 40px;
     height: 35px;
 }
@@ -55,15 +55,15 @@ li {
     border: none;
     background: none;
     font-weight: bold;
+    color: #f76c6c;
 }
 .profile:hover {
-    color: #f8e9a1;
+    color: #e95014;
     cursor: pointer;
-    background-color: rgba(36, 48, 94, .4);
-    border-radius: 50%;
 }
 
 .logout-button {
+    color: #f76c6c;
     float: right;
     position: relative;
     padding: 5px;
@@ -74,24 +74,24 @@ li {
     font-weight: bold;
 }
 .logout-button:hover {
-    color: #f8e9a1;
+    color: #e95014;
     cursor: pointer;
-    background-color: rgba(36, 48, 94, .4);
+    background-color: rgba(78, 78, 80, 0);
     border-radius: 24px 24px 24px 24px;
 }
 .create-post {
+    color: #f76c6c;
     float: right;
     position: relative;
     top: 6px;
     right: 47px;
     text-decoration: none;
-    color: black;
     font-weight: bold;
     padding: 5px;
 }
 .create-post:hover {
     color: #f8e9a1;
     cursor: pointer;
-    background-color: rgba(36, 48, 94, .4);
+    background-color: rgba(78, 78, 80, 0);
     border-radius: 24px 24px 24px 24px;
 }

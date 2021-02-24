@@ -1,0 +1,40 @@
+.big-post {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+}
+.post-opened {
+    margin: 20px auto 10px auto;
+    background-color: #f76c6c;
+    width: 600px;
+}
+.post-h1 {
+    margin: 10px 0 5px 0;
+}
+.highlight-description {
+    margin: 15px 0 5px 0;
+}
+.add-to-cart-button {
+    border: none;
+    margin: 10px 0 0 0;
+    color: white;
+    background-color: #4e4e50;
+    padding: 10px;
+    border-radius: 5px 5px;
+    border: none;
+    font-size: 15px;
+}
+.add-to-cart-button:hover {
+    background-color: #1a1a1d;
+    color: #f76c6c;
+    cursor: pointer;
+}
+.the-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+/* .post-highlights {
+
+}
+.post-description {
+
+} */

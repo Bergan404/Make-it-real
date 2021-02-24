@@ -1,5 +1,4 @@
 .categories {
-    color: white;
     list-style: none;
     text-align: center;
 }
@@ -8,9 +7,9 @@
 }
 .categories a {
     text-decoration: none;
-    color: #f8e9a1;
+    color: #f76c6c;
     font-size: 18px;
 }
 .categories a:hover {
-    color: #a8d0e6;
+    color: #f8e9a1;
 }

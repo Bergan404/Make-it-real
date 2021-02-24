@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getThePost } from "../../store/CreatePosts";
+import { getThePost, makePost } from "../../store/CreatePosts";
 import PostProperties from '../PostProperties/index';
 
-function PostOpened() {
+function PostOpened(props) {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
+    let id = Number(window.location.pathname[window.location.pathname.length-1])
     const posts = useSelector(state => state.makePost) || []
+
 
     useEffect(() => {
         console.log(sessionUser)
@@ -18,13 +20,14 @@ function PostOpened() {
     if (!Array.isArray(posts)) {
         return null
     } else {
-        const elements = posts.map((el) => {
-            return <PostProperties props={el} />
-        })
+        const obj = posts.filter((el) => {
+            return el.id === id
+        }) [0]
+        console.log(obj)
         return (
             <>
-                <div>
-                    {elements}
+                <div className="post-opened" >
+                    <PostProperties props={obj}/>
                 </div>
             </>
         );

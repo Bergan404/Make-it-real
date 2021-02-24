@@ -1,10 +1,12 @@
 .profile-layout {
-    background-color: #f76c6c;
-    margin-right: auto;
-    margin-left: auto;
-    width: 600px;
-    height: auto;
+    text-align: center;
+    margin: 0 auto 0 auto;
 }
 .welcome-letter {
+    text-align: center;
+}
+.profile-outer {
+    width: 700px;
+    margin: 0 auto 0 auto;
     text-align: center;
 }

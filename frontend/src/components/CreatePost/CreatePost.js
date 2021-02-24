@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory} from 'react-router-dom';
-import { useDispatch, useSelector} from "react-redux"
-import {createPost} from "../../store/CreatePosts"
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux"
+import { createPost } from "../../store/CreatePosts"
 
 import "./CreatePost.css";
 
-function Posts({}) {
+function Posts({ }) {
     const dispatch = useDispatch()
     const history = useHistory();
 
@@ -19,7 +19,7 @@ function Posts({}) {
 
     useEffect(() => {
         const errors = [];
-        if (postTitle.length === 0 ) {
+        if (postTitle.length === 0) {
             errors.push('Please enter a title')
         }
         setErrors(errors)
@@ -29,18 +29,23 @@ function Posts({}) {
         e.preventDefault();
         // dispatch(createPost(postTitle, description, highlights, listPicture, price, id.id));
 
-        const createdPost  = await dispatch(createPost(postTitle, description, highlights, listPicture, price, id.id));
+        const createdPost = await dispatch(createPost(postTitle, description, highlights, listPicture, price, id.id));
         if (createPost) {
             history.push(`/post/${createdPost.id}`);
         }
         console.log(createdPost.id)
     }
 
+    const handelCancel = (e) => {
+        e.preventDefault();
+        history.push('/');
+    }
+
     return (
         <>
             <form className="post-form" onSubmit={onSubmit}>
-                {/* <h1>Create Post</h1> */}
-                <ul className="errors" >
+                <h1 className="post-header">Create Post</h1>
+                <ul className="errors">
                     {errors.map(error => (
                         <li key={error}>
                             {error}
@@ -50,6 +55,7 @@ function Posts({}) {
                 <label>
                     Title
                     <input
+                        className="normal-style"
                         type="text"
                         value={postTitle}
                         onChange={(e) => setPostTitle(e.target.value)}
@@ -69,32 +75,49 @@ function Posts({}) {
                 </label>
                 <label>
                     Highlights
+                    <div className="radio" >
+                        <input
+                            className="radio-1"
+                            type="radio"
+                            value={highlights}
+                            name="highlights"
+                            onChange={() => setHighlights("Handmade")}
+                            required
+                        /> Handmade
                     <input
-                        type="text"
-                        value={highlights}
-                        onChange={(e) => setHighlights(e.target.value)}
-                        required
-                    />
+                            className="radio-2"
+                            type="radio"
+                            value={highlights}
+                            name="highlights"
+                            onChange={() => setHighlights("Digital Download")}
+                            required
+                        /> Digital Download
+                    </div>
                 </label>
                 <label>
                     Listing Picture
                     <input
+                        className="normal-style"
                         type="text"
                         value={listPicture}
                         onChange={(e) => setListPicture(e.target.value)}
                         required
                     />
                 </label>
-                <label>
+                <label className="price-is-right" >
                     Price
                     <input
+                        className="normal-style-price"
                         type="text"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required
                     />
                 </label>
-                <button className="create-post-submit" type="submit" disabled={!!errors.length} onClick={onSubmit} >Create Post</button>
+                <div className="post-cancel-create" >
+                    <button className="create-post-submit" type="submit" disabled={!!errors.length} onClick={onSubmit} >Create Post</button>
+                    <button className="cancel-post" onClick={handelCancel}>Cancel</button>
+                </div>
             </form>
 
         </>
