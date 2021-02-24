@@ -88,6 +88,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function (models) {
     User.hasMany(models.Post, { foreignKey: 'userId' });
     User.hasMany(models.Comment, { foreignKey: 'userId' });
+    User.hasOne(models.ShoppingCart, { foreignKey: 'userId' })
   };
 
 

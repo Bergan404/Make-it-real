@@ -1,23 +1,37 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import { post } from '../../../../backend/routes/api';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getThePost } from "../../store/CreatePosts";
+import Post from '../Post/index';
 
 import "./ProfilePage.css"
 
 function ProfilePage() {
+    const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    const posts = useSelector(state => {
-        return state.makePosta
-    })
+    const posts = useSelector(state => state.makePost) || []
 
-    return (
-        <>
-            <h1 className="welcome-letter"> Welcome {sessionUser?.username} </h1>
-            <div className="profile-layout" >
-                <div>{posts}</div>
-            </div>
-        </>
-    );
+    useEffect(() => {
+        console.log(sessionUser)
+        if (sessionUser) {
+            dispatch(getThePost(sessionUser.id))
+        }
+    }, [sessionUser])
+    if (!Array.isArray(posts)) {
+        return null
+    } else {
+        const elements = posts.map((el) => {
+            return <Post props={el} />
+        })
+        return (
+            <>
+                <h1 className="welcome-letter"> Welcome {sessionUser?.username} </h1>
+                <div className="profile-layout" >
+                    {elements}
+                </div>
+            </>
+        );
+    }
 }
 
 export default ProfilePage;

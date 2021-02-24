@@ -1,23 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('ShoppingCarts', {
+    return queryInterface.createTable('ShoppingCartPosts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model: 'Users'},
-      },
       postId: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model: 'Posts'},
-        unique: true
+        type: Sequelize.INTEGER,
+        unique: true,
+        references: {model: 'Posts'}
+      },
+      shoppingCartId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        unique: true,
+        references: {model: 'ShoppingCarts'}
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('ShoppingCarts');
+    return queryInterface.dropTable('ShoppingCartPosts');
   }
 };

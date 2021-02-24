@@ -30,7 +30,7 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        REFERENCES: {model: 'Users'}
+        references: {model: 'Users'}
       },
       createdAt: {
         allowNull: false,
