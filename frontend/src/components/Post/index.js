@@ -1,12 +1,16 @@
 import React from "react";
 
+import './Post.css';
+
 const Post = (props) => {
     console.log(props)
 
     return (
         <>
-            <div>{props.props.postTitle}</div>
-            <div>{props.props.price}</div>
+            <div className="post-content">
+                <div>{props.props.postTitle}</div>
+                <div>{props.props.price}</div>
+            </div>
         </>
     )
 }

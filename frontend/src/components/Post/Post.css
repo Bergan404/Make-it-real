@@ -1,0 +1,10 @@
+.post-content {
+    padding: 20px;
+}
+.post-content div {
+    font-size: 25px;
+}
+.post-content:hover {
+    background-color: white;
+    cursor: pointer;
+}
