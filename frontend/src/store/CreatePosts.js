@@ -26,6 +26,7 @@ export const createPost = (postTitle, description, highlights, listPicture, pric
     const data = await res.json();
     if (res.ok) {
         dispatch(makePost(data))
+        return data;
     } else {
         console.log(res)
     }

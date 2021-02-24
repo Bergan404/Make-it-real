@@ -5,7 +5,7 @@ import {createPost} from "../../store/CreatePosts"
 
 import "./CreatePost.css";
 
-function Posts() {
+function Posts({}) {
     const dispatch = useDispatch()
     const history = useHistory();
 
@@ -13,19 +13,27 @@ function Posts() {
     const [description, setDescription] = useState("");
     const [highlights, setHighlights] = useState("");
     const [listPicture, setListPicture] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState("$");
     const [errors, setErrors] = useState([]);
     const id = useSelector(state => state.session.user)
 
     useEffect(() => {
         const errors = [];
+        if (postTitle.length === 0 ) {
+            errors.push('Please enter a title')
+        }
         setErrors(errors)
-    }, [])
+    }, [postTitle])
 
-    const onSubmit = e => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        dispatch(createPost(postTitle, description, highlights, listPicture, price, id.id));
+        // dispatch(createPost(postTitle, description, highlights, listPicture, price, id.id));
 
+        const createdPost  = await dispatch(createPost(postTitle, description, highlights, listPicture, price, id.id));
+        if (createPost) {
+            history.push(`/post/${createdPost.id}`);
+        }
+        console.log(createdPost.id)
     }
 
     return (
@@ -80,7 +88,7 @@ function Posts() {
                 <label>
                     Price
                     <input
-                        type="number"
+                        type="text"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required
