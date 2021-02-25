@@ -8,6 +8,7 @@ import ProfilePage from './components/Profile/index'
 import Posts from "./components/CreatePost/CreatePost"
 import PostOpened from './components/PostAfterCreation/index'
 import ShoppingCart from './components/ShoppingCart/ShoppingCart'
+import PostProperties from './components/PostProperties/index'
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ function App() {
           <Route path="/post" component={PostOpened}/>
 
           <Route path="/shopping-cart" component={ShoppingCart}/>
+
+          <Route path="/post/:id" component={PostProperties}/>
 
         </Switch>
     </>

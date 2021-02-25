@@ -1,31 +1,52 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import {addThePost} from '../../store/AddPost'
 
 import './PostProperties.css'
 
-const PostProperties = (posts) => {
-    console.log(posts)
+const PostProperties = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    let id = Number(window.location.pathname.slice(6))
+    console.log(id)
+    const sessionUser = useSelector(state => state.session.user.username);
+    const allPosts = useSelector(state => state.allPosts)
+    const myPost = useSelector(state => state.makePost)
+    console.log(sessionUser)
 
     const handleCartAdd = (e) => {
         e.preventDefault();
-        history.push('/shopping-cart')
-    }
 
-    return (
-        <>
-            <div className="big-post" >
-                <div>{posts.props.listPicture}</div>
-                <h1 className="post-h1" >{posts.props.postTitle}</h1>
-                <div className="the-price" >{posts.props.price}</div>
-                <button className="add-to-cart-button" onClick={handleCartAdd} >Add To Cart</button>
-                <h3 className="highlight-description" >Highlights</h3>
-                <div className="post-highlights" >{posts.props.highlights}</div>
-                <h3 className="highlight-description" >Description</h3>
-                <div className="post-description" >{posts.props.description}</div>
-            </div>
-        </>
-    )
+        dispatch(addThePost(id))
+        history.push(`/shopping-cart/${sessionUser}`)
+    }
+    if (!Array.isArray(allPosts)) {
+        return null
+    } else {
+        let posts = allPosts.filter((el) => {
+            return el.id === id
+        })[0]
+        if (!posts) {
+            posts = myPost.filter((el) => {
+                return el.id === id
+            })[0]
+        }
+        return (
+            <>
+                <div className="big-post" >
+                    <div>{posts.listPicture}</div>
+                    <h1 className="post-h1" >{posts.postTitle}</h1>
+                    <div className="the-price" >{posts.price}</div>
+                    <button className="add-to-cart-button" onClick={handleCartAdd} >Add To Cart</button>
+                    <h3 className="highlight-description" >Highlights</h3>
+                    <div className="post-highlights" >{posts.highlights}</div>
+                    <h3 className="highlight-description" >Description</h3>
+                    <div className="post-description" >{posts.description}</div>
+                </div>
+            </>
+        )
+    }
 }
 
 export default PostProperties;

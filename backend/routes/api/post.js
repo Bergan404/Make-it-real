@@ -46,4 +46,9 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json(allPosts)
 }))
 
+router.get('/', asyncHandler(async (req, res) => {
+    const addPostToCart = await db.Post.findOne()
+    res.json(addPostToCart)
+}))
+
 module.exports = router;
