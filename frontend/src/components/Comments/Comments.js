@@ -1,5 +1,9 @@
 import React from 'react';
 
+const postComment = (e) => {
+    e.preventDefault()
+}
+
 function CommentsProperties() {
     return (
         <>
@@ -10,7 +14,7 @@ function CommentsProperties() {
                         type="textarea"
                         rows="5" cols="80"
                     />
-                    <button className="review-button" >Post Review</button>
+                    <button className="review-button" onClick={postComment}>Post Review</button>
                 </form>
             </div>
         </>
