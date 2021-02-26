@@ -6,8 +6,9 @@ const moment = require('moment')
 // const db = require('../../db/models/')
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, ShoppingCart } = require('../../db/models');
 const { db } = require('../../config');
+
 
 
 const router = express.Router();
@@ -32,32 +33,20 @@ const validateSignup = [
     handleValidationErrors,
 ];
 
-// Sign up
-router.post(
-    '',
-    asyncHandler(async (req, res) => {
-        const { email, password, username } = req.body;
-        const user = await User.signup({ email, username, password });
-
-        await setTokenCookie(res, user);
-
-        return res.json({
-            user,
-        });
-    }),
-);
-
 router.post(
     '',
     validateSignup,
     asyncHandler(async (req, res) => {
         const { email, password, username } = req.body;
         const user = await User.signup({ email, username, password });
+        console.log("---------------------------------", user)
+        const cart = await ShoppingCart.create({userId: user.id})
 
         await setTokenCookie(res, user);
 
         return res.json({
             user,
+            cart,
         });
     }),
 );
