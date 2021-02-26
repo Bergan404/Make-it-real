@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.get('/:id', asyncHandler(async (req, res) => {
     let id = Number(req.params.id)
-    console.log(id)
     const posts = await db.Post.findAll({where: {userId: id}});
     res.json(posts)
 }))
@@ -22,12 +21,6 @@ router.post('/', asyncHandler(async (req, res) => {
         userId,
     } = req.body;
 
-    console.log(postTitle,
-        description,
-        highlights,
-        listPicture,
-        price, userId)
-
     const Posts = await db.Post.create({
         postTitle,
         description,
@@ -37,8 +30,6 @@ router.post('/', asyncHandler(async (req, res) => {
         userId,
     });
     res.json(Posts)
-
-    console.log(req.body)
 }))
 
 router.get('/', asyncHandler(async (req, res) => {

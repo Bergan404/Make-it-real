@@ -33,7 +33,6 @@ function Posts({ }) {
         if (createPost) {
             history.push(`/post/${createdPost.id}`);
         }
-        console.log(createdPost.id)
     }
 
     const handelCancel = (e) => {

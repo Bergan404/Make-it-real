@@ -28,7 +28,6 @@ export const createPost = (postTitle, description, highlights, listPicture, pric
         dispatch(makePost(data))
         return data;
     } else {
-        console.log(res)
     }
 }
 
@@ -39,7 +38,6 @@ export const getThePost = (id) => async dispatch => {
         const posts = await response.json();
         dispatch(getPost(posts))
     } else {
-        console.log(response)
     }
 }
 

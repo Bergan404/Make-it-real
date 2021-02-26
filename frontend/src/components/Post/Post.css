@@ -4,7 +4,7 @@
     background-color: #f76c6c;
     font-size: 17px;
     width: 200px;
-    height: auto;
+    height: 100px;
     float: left;
     /* flex-basis: 100px; */
 }

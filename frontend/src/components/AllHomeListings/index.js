@@ -6,19 +6,19 @@ import './AllHomeListings.css'
 
 function AllHomeListing() {
     const post = useSelector(state => state.allPosts);
-    console.log(post)
+    const check = useSelector(state => state.session.user)
 
     if (!Array.isArray(post)) {
         return null
     } else {
-        const allPosts = post.map((el) => {
-            return <Post props={el} />
+        const allPosts = post.map((el, i) => {
+            return <Post key={i} props={el} />
         })
         return (
             <>
                 <h2 className="header-h2">All Listings</h2>
                     <div className="all-home-posts" >
-                        {allPosts}
+                        {check !== undefined?allPosts: null}
                     </div>
             </>
         );

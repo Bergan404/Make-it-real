@@ -1,0 +1,26 @@
+.cart-posts {
+    margin: 10px auto 10px auto;
+    background-color: #f76c6c;
+    font-size: 17px;
+    width: 200px;
+    height: 100px;
+}
+.cart-posts a {
+    text-decoration: none;
+    color: black;
+}
+.cart-posts a div {
+    padding: 10px;
+}
+.cart-posts:hover {
+    background-color: white;
+    cursor: pointer;
+}
+.cart-posts-outer-div {
+    text-align: center;
+}
+.line {
+    border: 1px solid black;
+    width: 300px;
+    margin: 20px auto 10px auto;
+}

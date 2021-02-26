@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import makePost from "./CreatePosts"
 import allPosts from './AllPosts'
 import addPost from './AddPost'
+import makeCart from './AddPost'
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     makePost,
     allPosts,
     addPost,
+    makeCart,
 });
 
 let enhancer;

@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
   const ShoppingCart = sequelize.define('ShoppingCart', {
     // id: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    postId: DataTypes.INTEGER
   }, {});
   ShoppingCart.associate = function(models) {
     const columnMapping = {through: 'ShoppingCartPosts', otherKey: 'postId', foreignKey: 'shoppingCartId'};

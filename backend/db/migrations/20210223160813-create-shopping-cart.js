@@ -13,12 +13,12 @@ module.exports = {
         allowNull: false,
         references: {model: 'Users'},
       },
-      postId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model: 'Posts'},
-        unique: true
-      },
+      // postId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {model: 'Posts'},
+      //   unique: true
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

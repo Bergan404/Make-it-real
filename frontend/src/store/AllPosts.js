@@ -24,7 +24,6 @@ export const getThePost = () => async dispatch => {
         const posts = await response.json();
         dispatch(getPost(posts))
     } else {
-        console.log(response)
     }
 }
 
@@ -39,7 +38,6 @@ export const createPost = (postTitle, description, highlights, listPicture, pric
         dispatch(mergePost(data))
         return data;
     } else {
-        console.log(res)
     }
 }
 

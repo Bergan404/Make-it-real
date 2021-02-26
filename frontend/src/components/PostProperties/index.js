@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import {addThePost} from '../../store/AddPost'
+import {deleteThePost} from '../../store/DeletePost'
 
 import './PostProperties.css'
 
@@ -11,9 +12,9 @@ const PostProperties = () => {
     let id = Number(window.location.pathname.slice(6))
     console.log(id)
     const sessionUser = useSelector(state => state.session.user.username);
+    const userId = useSelector(state => state.session.user.id)
     const allPosts = useSelector(state => state.allPosts)
     const myPost = useSelector(state => state.makePost)
-    console.log(sessionUser)
 
     const handleCartAdd = (e) => {
         e.preventDefault();
@@ -21,6 +22,14 @@ const PostProperties = () => {
         dispatch(addThePost(id))
         history.push(`/shopping-cart/${sessionUser}`)
     }
+
+    const deletePost = (e) => {
+        e.preventDefault();
+
+        dispatch(deleteThePost(id))
+        history.push('/')
+    }
+
     if (!Array.isArray(allPosts)) {
         return null
     } else {
@@ -43,6 +52,7 @@ const PostProperties = () => {
                     <div className="post-highlights" >{posts.highlights}</div>
                     <h3 className="highlight-description" >Description</h3>
                     <div className="post-description" >{posts.description}</div>
+                    {posts.userId === userId?<button className="delete-button" onClick={deletePost} >Delete</button>: null}
                 </div>
             </>
         )

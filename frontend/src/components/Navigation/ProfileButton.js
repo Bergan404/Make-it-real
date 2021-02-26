@@ -6,7 +6,6 @@ import * as sessionActions from '../../store/session';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const {username} = useSelector(state => state.session.user)
-  // console.log(username)
 
   const logout = (e) => {
     e.preventDefault();

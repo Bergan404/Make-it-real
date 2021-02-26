@@ -12,7 +12,6 @@ function ProfilePage() {
     const posts = useSelector(state => state.makePost) || []
 
     useEffect(() => {
-        console.log(sessionUser)
         if (sessionUser) {
             dispatch(getThePost(sessionUser.id))
         }

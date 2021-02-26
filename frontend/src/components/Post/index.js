@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import './Post.css';
 
 const Post = (props) => {
-    console.log(props)
 
     return (
         <>
