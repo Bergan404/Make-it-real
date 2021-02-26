@@ -8,16 +8,20 @@ const router = express.Router();
 router.get('/:id', asyncHandler(async (req, res) => {
     const id = Number(req.params.id)
     const addPostToCart = await db.Post.findByPk(id)
+
+
     res.json(addPostToCart)
 }))
 
 router.post('/', asyncHandler(async (req, res) => {
     const {
-        userId,
+        postId,
+        shoppingCartId,
     } = req.body
 
-    const cart = await db.ShoppingCart.create({
-        userId,
+    const cart = await db.ShoppingCartPost.create({
+        postId,
+        shoppingCartId,
     })
     res.json(cart)
 }))

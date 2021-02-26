@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {addThePost} from '../../store/AddPost'
 import {deleteThePost} from '../../store/DeletePost'
 
+
 import './PostProperties.css'
+
 
 const PostProperties = () => {
     const history = useHistory();

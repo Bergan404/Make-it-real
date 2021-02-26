@@ -28,8 +28,7 @@ export const addThePost = (id) => async dispatch => {
 }
 
 export const createCart = (userId) => async dispatch => {
-    console.log(userId, "-----------------------------")
-    const res = await csrfFetch("/api/shopping-cart/", {
+    const res = await csrfFetch(`/api/shopping-cart/${userId}`, {
         method: 'post',
         // headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({userId})

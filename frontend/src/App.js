@@ -29,7 +29,7 @@ function App() {
 
           <Route path="/post" component={PostOpened}/>
 
-          <Route path="/shopping-cart" component={ShoppingCart}/>
+          <Route path="/shopping-cart/:username" component={ShoppingCart}/>
 
           <Route path="/post/:id" component={PostProperties}/>
 

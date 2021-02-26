@@ -7,9 +7,9 @@ import SignUpFormModal from '../SignupFormPage'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
-  // const {username} = useSelector(state => state.session.user)
   const sessionUser = useSelector(state => state.session.user);
   const [showCart, setShowCart] = useState(false)
+  console.log(sessionUser)
 
   let sessionLinks;
   if (sessionUser) {
@@ -33,7 +33,7 @@ function Navigation({ isLoaded }) {
         {isLoaded && sessionLinks}
       </li>
       <li className="cart">
-        <NavLink className="shopping-cart" to={`/shopping-cart/`}>
+        <NavLink className="shopping-cart" to={`/shopping-cart/${sessionUser?.username}`}>
             {/* <img src="./shopping-cart.png" /> */}
             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart"
               className="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
