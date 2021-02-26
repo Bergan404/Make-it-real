@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const ADD_POST = "ADD_POST";
 const MAKE_CART = "MAKE_CART";
+const CURRENT_CART = "CURRENT_CART";
 
 export const addPost = (post) => {
     return {
@@ -17,6 +18,13 @@ export const makeCart = (cart) => {
     }
 }
 
+export const setCurrentCart = (cartId) => {
+    return {
+        type: CURRENT_CART,
+        cartId,
+    }
+}
+
 export const addThePost = (id) => async dispatch => {
     const response = await csrfFetch(`/api/shopping-cart/${id}`);
 
@@ -27,11 +35,11 @@ export const addThePost = (id) => async dispatch => {
     }
 }
 
-export const createCart = (userId) => async dispatch => {
-    const res = await csrfFetch(`/api/shopping-cart/${userId}`, {
+export const createCartItem = (cartId, id) => async dispatch => {
+    const res = await csrfFetch(`/api/shopping-cart/${cartId}`, {
         method: 'post',
         // headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({userId})
+        body: JSON.stringify({cartId, id})
     })
     const data = await res.json();
     if (res.ok) {
@@ -40,12 +48,33 @@ export const createCart = (userId) => async dispatch => {
     }
 }
 
+export const currentCart = (userId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/shopping-cart/cart/${userId}`)
+    const data = await response.json();
+    // console.log(data, "------------------------")
+    if (response.ok) {
+        dispatch(setCurrentCart(data.cart.id))
+        return data;
+    }
+
+};
+
 export default function reducer(state = [], action){
     switch(action.type) {
         case ADD_POST:
             return[...state, action.post]
         case MAKE_CART:
             return action.post
+        default:
+            return state;
+    }
+}
+
+export function reducerTwo(state = [], action){
+    let newState;
+    switch(action.type) {
+        case CURRENT_CART:
+            return action.cartId
         default:
             return state;
     }

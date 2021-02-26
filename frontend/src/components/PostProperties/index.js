@@ -3,10 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import {addThePost} from '../../store/AddPost'
 import {deleteThePost} from '../../store/DeletePost'
-
+import {currentCart, createCartItem} from '../../store/AddPost'
 
 import './PostProperties.css'
-
 
 const PostProperties = () => {
     const history = useHistory();
@@ -17,11 +16,14 @@ const PostProperties = () => {
     const userId = useSelector(state => state.session.user.id)
     const allPosts = useSelector(state => state.allPosts)
     const myPost = useSelector(state => state.makePost)
+    const cartId = useSelector(state => state.currentCart)
 
     const handleCartAdd = (e) => {
         e.preventDefault();
 
         dispatch(addThePost(id))
+        dispatch(currentCart(userId))
+        dispatch(createCartItem(cartId, id))
         history.push(`/shopping-cart/${sessionUser}`)
     }
 

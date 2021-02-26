@@ -6,13 +6,15 @@ function ShoppingCart() {
     // const dispatch = useDispatch()
     const addPost = useSelector(state => state.addPost)
     const items = useSelector(state => state.addPost)
-    console.log(items)
+    console.log(items, "------------------------")
     let total = 0;
-    const itemTotal = items.forEach(item => {
-        let itemPrice = item.price.slice(1);
-        total = total + +itemPrice
-        return total
-    })
+    if (items) {
+        const itemTotal = items.forEach(item => {
+            let itemPrice = item.price.slice(1);
+            total = total + +itemPrice
+            return total
+        })
+    }
 
     if (!Array.isArray(addPost)) {
         return null

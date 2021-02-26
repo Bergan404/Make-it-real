@@ -5,6 +5,8 @@ import makePost from "./CreatePosts"
 import allPosts from './AllPosts'
 import addPost from './AddPost'
 import makeCart from './AddPost'
+import {reducerTwo} from './AddPost'
+
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -12,6 +14,7 @@ const rootReducer = combineReducers({
     allPosts,
     addPost,
     makeCart,
+    currentCart: reducerTwo,
 });
 
 let enhancer;

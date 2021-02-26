@@ -102,3 +102,8 @@
     color: #f76c6c;
     cursor: pointer;
 }
+.errors {
+    list-style: none;
+    color: white;
+    margin-left: 170px;
+}

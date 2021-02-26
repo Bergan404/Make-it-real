@@ -1,9 +1,17 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } = require('express-validator');
-const db = require('../../db/models/')
+const db = require('../../db/models/');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
+
+const validatePost = [
+    check('postTitle')
+        .exists({checkFalsy: true})
+        .withMessage("Please Provide a title for your post."),
+    handleValidationErrors,
+]
 
 router.get('/:id', asyncHandler(async (req, res) => {
     let id = Number(req.params.id)
@@ -11,7 +19,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.json(posts)
 }))
 
-router.post('/', asyncHandler(async (req, res) => {
+router.post('/', validatePost, asyncHandler(async (req, res) => {
     const {
         postTitle,
         description,
